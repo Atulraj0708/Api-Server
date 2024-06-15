@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start":"npx nodemon index.js",
+    "start": "npx nodemon index.js",
     "test": "jest"
   },
   "dependencies": {
