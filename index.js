@@ -8,6 +8,9 @@ const app = express();
 const port = 5000;
 
 app.use(bodyParser.json());
+app.get('/', (req, res) => {
+    res.redirect('/banks'); 
+  });
 
 app.get('/banks', async (req, res) => {
   try {
