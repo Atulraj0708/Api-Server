@@ -3,9 +3,11 @@ const bodyParser = require('body-parser');
 const sequelize = require('./database');
 const Bank = require('./bank-api/models/bank');
 const Branch = require('./bank-api/models/branch');
-
+const dotenv=require("dotenv");
 const app = express();
-const port = 5000;
+dotenv.config();
+const PORT = process.env.PORT;
+
 
 app.use(bodyParser.json());
 app.get('/', (req, res) => {
@@ -36,8 +38,8 @@ app.get('/banks/:bankId/branches', async (req, res) => {
 });
 
 sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
   });
 });
 module.exports=app;
